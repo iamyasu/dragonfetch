@@ -1,0 +1,25 @@
+# by yasu
+# https://github.com/iamyasu
+echo
+echo           
+echo -e "\033[01;31m          ddP           					"
+echo -e "\033[01;31m        d8888b       /(  					"
+echo -e "\033[01;31m       dY8d888      /M  					"
+echo -e "\033[01;31m     d88888888    /dMb\_,					"
+echo -e "\033[01;31m   d8888P8888P   /dMMMP/ 	\033[01;30m SHELL:      `basename ${SHELL}`	"
+echo -e "\033[01;31m    V     888  /dMMMMP/         \033[01;30m HOSTNAME:   `sysctl -n kern.hostname`  "
+echo -e "\033[01;31m         d888P/dMMMMM(   	\033[01;30m OS:         `sysctl -n kern.ostype`	"
+echo -e "\033[01;31m        d88888dMMMMMMb\  	\033[01;30m RELEASE:    `sysctl -n kern.osrelease`	"
+echo -e "\033[01;31m       ,888PdPMMMMMMMMP 	\033[01;30m UPTIME:     `uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//'`"
+echo -e "\033[01;31m      d8Pd8888bMMMMMMM(  	\033[01;30m PKG:   `pkg info | wc -l`	"
+echo -e "\033[01;31m   dP88  8888888b\MMMMb\ 	\033[01;30m WM:         `wmctrl -m | awk -F': ' '/Name/{print $NF}'`"	
+echo -e "\033[01;31m    ,d    Y888888b\MMMP 					"
+echo -e "           Y88888888\M(               ,aaaaa,   		"
+echo -e "             Y8Pd8888\M\             V      aa, 		"
+echo -e "              d88888888\\ , , ,            ,aaa 		"
+echo -e "           ,d8888Pd88888888V8V8bAvAvAvvAvd888P 		"
+echo -e "           8888P    Y88888888888888888888P    		"
+echo -e "          88888 						"
+echo
+echo -e "\033[05;35m         make linux, not war"
+echo -e "\033[01;m"
