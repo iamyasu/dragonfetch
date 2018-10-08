@@ -1,0 +1,53 @@
+# by yasu
+# require wmctrl
+# https://github.com/iamyasu
+
+shell="$(basename ${SHELL})"
+hostname="$(sysctl -n kern.hostname)"
+os="$(sysctl -n kern.ostype)"
+release="$(sysctl -n kern.osrelease)"
+uptime="$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')"
+PKG="$(pkg info | wc -l | sed -e 's/^[ \t]*//')"
+WM="$(wmctrl -m | awk -F': ' '/Name/{print $NF}')"
+
+if [ -x "$(command -v tput)" ]; then 	
+        bold="$(tput md)" 	
+	black="$(tput AF 0)" 	
+	red="$(tput AF 1)" 	
+	green="$(tput AF 2)" 	
+	yellow="$(tput AF 3)" 	
+	blue="$(tput AF 4)" 	
+	magenta="$(tput AF 5)" 	
+	cyan="$(tput AF 6)" 	
+	white="$(tput AF 7)" 	
+	reset="$(tput me)" 
+fi
+
+lc="${reset}${bold}${cyan}"		
+nc="${reset}${bold}${red}"	
+ic="${reset}${bold}${black}"	 
+c0="${reset}${bold}${red}"	 
+c1="${reset}${red}"	 
+
+cat <<EOF
+
+${c0}          ddP           					
+${c0}        d8888b       /(  					
+${c0}       dY8d888      /M  					
+${c0}     d88888888    /dMb\_,					
+${c0}   d8888P8888P   /dMMMP/      ${lc}hostname:  ${ic}${hostname}${reset}
+${c0}    V     888  /dMMMMP/       ${lc}OS:        ${ic}${os}${reset} 
+${c0}         d888P/dMMMMM(        ${lc}release:   ${ic}${release}${reset}
+${c0}        d88888dMMMMMMb\       ${lc}SHELL:     ${ic}${shell}${reset}
+${c0}       ,888PdPMMMMMMMMP       ${lc}PKG:       ${ic}${PKG}${reset}
+${c0}      d8Pd8888bMMMMMMM(       ${lc}uptime:    ${ic}${uptime}${reset}
+${c0}   dP88  8888888b\MMMMb\      ${lc}WM:        ${ic}${WM}${reset}
+${c0}    ,d    Y888888b\MMMP 
+${c0}           Y88888888\M(               ,aaaaa,   		
+${c0}             Y8Pd8888\M\             V      aa, 		
+${c0}              d88888888\\ , , ,            ,aaa 		
+${c0}           ,d8888Pd88888888V8V8bAvAvAvvAvd888P 		 
+${c0}           8888P    Y88888888888888888888P    		
+${c0}          88888 						
+
+EOF
