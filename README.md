@@ -1,3 +1,3 @@
 # dragonfetch
-# WORKS IN ANY BSD
-# requires wmctrl for great work
+WORKS IN ANY BSD
+requires wmctrl for great work
