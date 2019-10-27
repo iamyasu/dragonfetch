@@ -1,6 +1,6 @@
-# by yasu
+# by yaszu
 # require wmctrl
-# https://github.com/iamyasu
+# https://github.com/yaszu
 
 shell="$(basename ${SHELL})"
 hostname="$(sysctl -n kern.hostname)"
